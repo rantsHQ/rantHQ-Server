@@ -1,38 +1,19 @@
-import express, { Router, Request, Response } from "express";
+import express, { Router } from "express";
+import {
+  deletePost,
+  fetchAllPosts,
+  fetchSinglePost,
+} from "../controllers/posts.controller";
 
 const routesPosts: Router = express.Router();
 
 // GET: /posts
-routesPosts.get("/", async (req: Request, res: Response): Promise<Response> => {
-  const response = {
-    status: 501,
-    message: "No posts found",
-  };
-  return res.status(response.status).json(response);
-});
+routesPosts.get("/", fetchAllPosts);
 
 // GET: /posts/{id}
-routesPosts.get(
-  "/:id",
-  async (req: Request, res: Response): Promise<Response> => {
-    const response = {
-      status: 501,
-      message: "Post not found",
-    };
-    return res.status(response.status).json(response);
-  }
-);
+routesPosts.get("/:id", fetchSinglePost);
 
 // DELETE: /posts/{id}
-routesPosts.delete(
-  "/:id",
-  async (req: Request, res: Response): Promise<Response> => {
-    const response = {
-      status: 501,
-      message: "Post deleted successfully",
-    };
-    return res.status(response.status).json(response);
-  }
-);
+routesPosts.delete("/:id", deletePost);
 
 export default routesPosts;

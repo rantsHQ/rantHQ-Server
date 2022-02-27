@@ -1,39 +1,19 @@
 import express, { Router, Request, Response } from "express";
+import {
+  deleteUser,
+  fetchAllUsers,
+  fetchSingleUser,
+} from "../controllers/users.controller";
 
 const routesUsers: Router = express.Router();
 
 // GET: /users
-routesUsers.get("/", async (req: Request, res: Response): Promise<Response> => {
-  const response = {
-    status: 501,
-    message: "No users found",
-  };
-  return res.status(response.status).json(response);
-});
+routesUsers.get("/", fetchAllUsers);
 
 // GET: /users/{id}
-routesUsers.get(
-  "/:id",
-  async (req: Request, res: Response): Promise<Response> => {
-    const response = {
-      status: 501,
-      message: "User not found",
-    };
-    return res.status(response.status).json(response);
-  }
-);
+routesUsers.get("/:id", fetchSingleUser);
 
 // DELETE: /users/{id}
-routesUsers.delete(
-  "/:id",
-  async (req: Request, res: Response): Promise<Response> => {
-    const response = {
-      status: 501,
-      error: true,
-      message: "User not deactivated",
-    };
-    return res.status(response.status).json(response);
-  }
-);
+routesUsers.delete("/:id", deleteUser);
 
 export default routesUsers;
