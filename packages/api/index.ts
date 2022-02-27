@@ -1,21 +1,15 @@
-import express from "express";
-import { Application, Request, Response, NextFunction } from "express";
+import express, { Application } from "express";
+
+import routesIndex from "./src/routes/index.route";
 
 const app: Application = express();
-const port = 3000;
+const port = 2700;
 
 // Body parsing Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", async (req: Request, res: Response): Promise<Response> => {
-  const response = {
-    status: 200,
-    message: "Welome to rantsHQ",
-    author:'hmmd@ogbeni.com.ng'
-  };
-  return res.status(response.status).json(response);
-});
+app.use("/v1/", routesIndex);
 
 try {
   app.listen(port, (): void => {
