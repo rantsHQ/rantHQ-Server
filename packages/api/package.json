@@ -2,8 +2,8 @@
   "name": "api",
   "packageManager": "yarn@3.2.0",
   "scripts": {
-    "start:dev": "ts-node-dev ./index.ts",
-    "start": "tsc && node ./index.js"
+    "dev": "ts-node-dev ./index.ts",
+    "start": "tsc && node ./build/index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
