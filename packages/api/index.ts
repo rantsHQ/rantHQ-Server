@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express";
 import { Application, Request, Response, NextFunction } from "express";
 
 const app: Application = express();
@@ -9,9 +9,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", async (req: Request, res: Response): Promise<Response> => {
-  return res.status(200).send({
-    message: "Hello World!",
-  });
+  const response = {
+    status: 200,
+    message: "Welome to rantsHQ",
+    author:'hmmd@ogbeni.com.ng'
+  };
+  return res.status(response.status).json(response);
 });
 
 try {
@@ -19,5 +22,5 @@ try {
     console.log(`Connected successfully on port ${port}`);
   });
 } catch (error) {
-  console.error(`Error occured: ${error.message}`);
+  console.error(`Error occured: ${error}`);
 }

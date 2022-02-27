@@ -1268,8 +1268,6 @@ __metadata:
 "rantsHQ@workspace:.":
   version: 0.0.0-use.local
   resolution: "rantsHQ@workspace:."
-  dependencies:
-    typescript: ^4.5.5
   languageName: unknown
   linkType: soft
 
