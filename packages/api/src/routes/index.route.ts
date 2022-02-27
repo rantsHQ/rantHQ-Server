@@ -11,4 +11,12 @@ routesIndex.get("/", async (req: Request, res: Response): Promise<Response> => {
   return res.status(response.status).json(response);
 });
 
+routesIndex.get("*", async (req: Request, res: Response): Promise<Response> => {
+  const response = {
+    status: 404,
+    message: "Resourses not found",
+  };
+  return res.status(response.status).json(response);
+});
+
 export default routesIndex;

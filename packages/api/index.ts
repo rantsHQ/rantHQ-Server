@@ -9,7 +9,7 @@ const port = 2700;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/v1/", routesIndex);
+app.use("/", routesIndex);
 
 try {
   app.listen(port, (): void => {
