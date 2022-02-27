@@ -1,6 +1,5 @@
 import express, { Application } from "express";
-
-import routesIndex from "./src/routes/index.route";
+import routes from "./src/routes/index.route";
 
 const app: Application = express();
 const port = 2700;
@@ -9,7 +8,8 @@ const port = 2700;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", routesIndex);
+// Routes handler
+app.use("/", routes);
 
 try {
   app.listen(port, (): void => {

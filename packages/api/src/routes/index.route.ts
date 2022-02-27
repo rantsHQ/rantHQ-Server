@@ -1,8 +1,11 @@
 import express, { Router, Request, Response } from "express";
+import routesPosts from "./posts.route";
+import routesUsers from "./users.route";
 
-const routesIndex: Router = express.Router();
+const routes: Router = express.Router();
 
-routesIndex.get("/", async (req: Request, res: Response): Promise<Response> => {
+// GET: root
+routes.get("/", async (req: Request, res: Response): Promise<Response> => {
   const response = {
     status: 200,
     message: "Welome to rantsHQ",
@@ -11,7 +14,12 @@ routesIndex.get("/", async (req: Request, res: Response): Promise<Response> => {
   return res.status(response.status).json(response);
 });
 
-routesIndex.get("*", async (req: Request, res: Response): Promise<Response> => {
+// valid routes
+routes.use("/posts", routesPosts);
+routes.use("/users", routesUsers);
+
+// ALL: 404
+routes.all("/*", async (req: Request, res: Response): Promise<Response> => {
   const response = {
     status: 404,
     message: "Resourses not found",
@@ -19,4 +27,4 @@ routesIndex.get("*", async (req: Request, res: Response): Promise<Response> => {
   return res.status(response.status).json(response);
 });
 
-export default routesIndex;
+export default routes;
