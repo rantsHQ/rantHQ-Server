@@ -1,4 +1,5 @@
 import express, { Router, Request, Response } from "express";
+import { NotImplemented } from "../controllers/MiscController";
 import {
   CreateUser,
   DeleteUser,
@@ -25,6 +26,7 @@ const UsersRoutes: Router = express.Router();
  * GET /users
  * @tags Users
  * @summary Fetch all users
+ * @param {string} page.query - Pagination
  * @return {array<User>} 200 - Success response
  */
 UsersRoutes.get("/", GetUsers);
@@ -37,10 +39,11 @@ UsersRoutes.get("/", GetUsers);
  * @param {User} request.body.required
  * @example request - payload example
  * {
- *   "username": "MBuhari",
- *   "email": "example@email.com",
- *   "firstName": "Muhammadu",
- *   "lastName": "Buhari"
+ *   "username": "",
+ *   "email": "",
+ *   "firstName": "",
+ *   "lastName": "",
+ *   "location": ""
  * }
  */
 UsersRoutes.get("/", CreateUser);
@@ -53,6 +56,22 @@ UsersRoutes.get("/", CreateUser);
  * @return {User} - 200 - success response
  */
 UsersRoutes.get("/:id", GetUser);
+
+/**
+ * PATCH /users
+ * @tags Users
+ * @summary Update user account
+ * @return {User} 200 - Success response
+ * @param {User} request.body.required
+ * @example request - payload example
+ * {
+ *   "email": "",
+ *   "firstName": "",
+ *   "lastName": "",
+ *   "location": ""
+ * }
+ */
+UsersRoutes.get("/", NotImplemented);
 
 /**
  * DELETE /users/{id}
