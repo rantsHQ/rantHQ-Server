@@ -187,6 +187,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-styles@npm:^4.1.0":
+  version: 4.3.0
+  resolution: "ansi-styles@npm:4.3.0"
+  dependencies:
+    color-convert: ^2.0.1
+  checksum: 513b44c3b2105dd14cc42a19271e80f386466c4be574bccf60b627432f9198571ebf4ab1e4c3ba17347658f4ee1711c163d574248c0c1cdc2d5917a0ad582ec4
+  languageName: node
+  linkType: hard
+
 "anymatch@npm:~3.1.2":
   version: 3.1.2
   resolution: "anymatch@npm:3.1.2"
@@ -204,6 +213,7 @@ __metadata:
     "@types/express": ^4.17.13
     "@types/node": ^17.0.21
     express: ^4.17.3
+    express-jsdoc-swagger: ^1.6.7
     ts-node-dev: ^1.1.8
     typescript: ^4.5.5
   languageName: unknown
@@ -331,6 +341,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:^4.1.0":
+  version: 4.1.2
+  resolution: "chalk@npm:4.1.2"
+  dependencies:
+    ansi-styles: ^4.1.0
+    supports-color: ^7.1.0
+  checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.1":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -361,6 +381,22 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 2ac8cd2b2f5ec986a3c743935ec85b07bc174d5421a5efc8017e1f146a1cf5f781ae962618f416352103b32c9cd7e203276e8c28241bbe946160cab16149fb68
+  languageName: node
+  linkType: hard
+
+"color-convert@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "color-convert@npm:2.0.1"
+  dependencies:
+    color-name: ~1.1.4
+  checksum: 79e6bdb9fd479a205c71d89574fccfb22bd9053bd98c6c4d870d65c132e5e904e6034978e55b43d69fcaa7433af2016ee203ce76eeba9cfa554b373e7f7db336
+  languageName: node
+  linkType: hard
+
+"color-name@npm:~1.1.4":
+  version: 1.1.4
+  resolution: "color-name@npm:1.1.4"
+  checksum: b0445859521eb4021cd0fb0cc1a75cecf67fceecae89b63f62b201cca8d345baf8b952c966862a9d9a2632987d4f6581f0ec8d957dfacece86f0a7919316f610
   languageName: node
   linkType: hard
 
@@ -473,6 +509,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"doctrine@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "doctrine@npm:3.0.0"
+  dependencies:
+    esutils: ^2.0.2
+  checksum: fd7673ca77fe26cd5cba38d816bc72d641f500f1f9b25b83e8ce28827fe2da7ad583a8da26ab6af85f834138cf8dae9f69b0cd6ab925f52ddab1754db44d99ce
+  languageName: node
+  linkType: hard
+
 "dynamic-dedupe@npm:^0.3.0":
   version: 0.3.0
   resolution: "dynamic-dedupe@npm:0.3.0"
@@ -533,6 +578,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esutils@npm:^2.0.2":
+  version: 2.0.3
+  resolution: "esutils@npm:2.0.3"
+  checksum: 22b5b08f74737379a840b8ed2036a5fb35826c709ab000683b092d9054e5c2a82c27818f12604bfc2a9a76b90b6834ef081edbc1c7ae30d1627012e067c6ec87
+  languageName: node
+  linkType: hard
+
 "etag@npm:~1.8.1":
   version: 1.8.1
   resolution: "etag@npm:1.8.1"
@@ -540,7 +592,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.17.3":
+"express-jsdoc-swagger@npm:^1.6.7":
+  version: 1.6.7
+  resolution: "express-jsdoc-swagger@npm:1.6.7"
+  dependencies:
+    chalk: ^4.1.0
+    doctrine: ^3.0.0
+    express: ^4.17.1
+    glob: ^7.1.6
+    merge: ^2.1.1
+    swagger-ui-express: ^4.1.6
+  checksum: fcc4e70edbd2e189cf20357ba7157ecfd01b943e1bd07b53ead02dd163d26809174942b5866e2c0dd1145dac6bfe7fb3467cf66bdef23085e1ace6eb9e53ac65
+  languageName: node
+  linkType: hard
+
+"express@npm:^4.17.1, express@npm:^4.17.3":
   version: 4.17.3
   resolution: "express@npm:4.17.3"
   dependencies:
@@ -684,7 +750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.1.3, glob@npm:^7.1.4":
+"glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.2.0
   resolution: "glob@npm:7.2.0"
   dependencies:
@@ -702,6 +768,13 @@ __metadata:
   version: 4.2.9
   resolution: "graceful-fs@npm:4.2.9"
   checksum: 68ea4e07ff2c041ada184f9278b830375f8e0b75154e3f080af6b70f66172fabb4108d19b3863a96b53fc068a310b9b6493d86d1291acc5f3861eb4b79d26ad6
+  languageName: node
+  linkType: hard
+
+"has-flag@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "has-flag@npm:4.0.0"
+  checksum: 261a1357037ead75e338156b1f9452c016a37dcd3283a972a30d9e4a87441ba372c8b81f818cd0fbcd9c0354b4ae7e18b9e1afa1971164aef6d18c2b6095a8ad
   languageName: node
   linkType: hard
 
@@ -954,6 +1027,13 @@ __metadata:
   version: 1.0.1
   resolution: "merge-descriptors@npm:1.0.1"
   checksum: 5abc259d2ae25bb06d19ce2b94a21632583c74e2a9109ee1ba7fd147aa7362b380d971e0251069f8b3eb7d48c21ac839e21fa177b335e82c76ec172e30c31a26
+  languageName: node
+  linkType: hard
+
+"merge@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "merge@npm:2.1.1"
+  checksum: 9c36b0e25aa53b3f7305d7cf0f330397f1142cf311802b681e5619f12e986a790019b8246c1c0df21701c8652449f9046b0129551030097ef563d1958c823249
   languageName: node
   linkType: hard
 
@@ -1541,10 +1621,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"supports-color@npm:^7.1.0":
+  version: 7.2.0
+  resolution: "supports-color@npm:7.2.0"
+  dependencies:
+    has-flag: ^4.0.0
+  checksum: 3dda818de06ebbe5b9653e07842d9479f3555ebc77e9a0280caf5a14fb877ffee9ed57007c3b78f5a6324b8dbeec648d9e97a24e2ed9fdb81ddc69ea07100f4a
+  languageName: node
+  linkType: hard
+
 "supports-preserve-symlinks-flag@npm:^1.0.0":
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 53b1e247e68e05db7b3808b99b892bd36fb096e6fba213a06da7fab22045e97597db425c724f2bbd6c99a3c295e1e73f3e4de78592289f38431049e1277ca0ae
+  languageName: node
+  linkType: hard
+
+"swagger-ui-dist@npm:>=4.1.3":
+  version: 4.10.0
+  resolution: "swagger-ui-dist@npm:4.10.0"
+  checksum: 2d09ce4dd5094063bda1d4b615797f2b07c21003f80a86f56919451700cde08eb686e8e6e02a94488149218e11a2f87625f7cba9f1f9a6a75442939b0bf00011
+  languageName: node
+  linkType: hard
+
+"swagger-ui-express@npm:^4.1.6":
+  version: 4.3.0
+  resolution: "swagger-ui-express@npm:4.3.0"
+  dependencies:
+    swagger-ui-dist: ">=4.1.3"
+  peerDependencies:
+    express: ">=4.0.0"
+  checksum: 8d2e1e5389efff59f19fbea9156e8db676a77aa80812872899f46a6e97e697b4e0ea0baccc5ec0f266371a6e604c2289fc84f2edc623a37f51f2393553796a8b
   languageName: node
   linkType: hard
 
