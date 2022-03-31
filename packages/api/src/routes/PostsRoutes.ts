@@ -1,11 +1,7 @@
 import express, { Router } from "express";
-import {
-  deletePost,
-  fetchAllPosts,
-  fetchSinglePost,
-} from "../controllers/PostsController";
+import { GetPost, GetPosts, DeletePost } from "../controllers/PostsController";
 
-const routesPosts: Router = express.Router();
+const PostsRoutes: Router = express.Router();
 
 /**
  * A post type
@@ -22,7 +18,7 @@ const routesPosts: Router = express.Router();
  * @summary Fetch all posts
  * @return {array<Post>} 200 - Success response
  */
-routesPosts.get("/", fetchAllPosts);
+PostsRoutes.get("/", GetPosts);
 
 /**
  * GET /posts/{id}
@@ -31,7 +27,7 @@ routesPosts.get("/", fetchAllPosts);
  * @param {string} id.path - Post id
  * @return {Post} - 200 - success response
  */
-routesPosts.get("/:id", fetchSinglePost);
+PostsRoutes.get("/:id", GetPost);
 
 /**
  * DELETE /posts/{id}
@@ -40,6 +36,6 @@ routesPosts.get("/:id", fetchSinglePost);
  * @param {string} id.path.required - Post id
  * @return {Post} - 200 - success response
  */
-routesPosts.delete("/:id", deletePost);
+PostsRoutes.delete("/:id", DeletePost);
 
-export default routesPosts;
+export default PostsRoutes;

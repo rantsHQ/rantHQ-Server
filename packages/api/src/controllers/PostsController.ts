@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 
-export function fetchSinglePost(req: Request, res: Response) {
+export function GetPost(req: Request, res: Response) {
   const response = {
     status: 501,
     error: true,
@@ -9,7 +9,7 @@ export function fetchSinglePost(req: Request, res: Response) {
   return res.status(response.status).json(response);
 }
 
-export function fetchAllPosts(req: Request, res: Response) {
+export function GetPosts(req: Request, res: Response) {
   const response = {
     status: 501,
     message: "No posts found",
@@ -17,7 +17,7 @@ export function fetchAllPosts(req: Request, res: Response) {
   return res.status(response.status).json(response);
 }
 
-export function deletePost(req: Request, res: Response) {
+export function DeletePost(req: Request, res: Response) {
   const response = {
     status: 501,
     message: "Post not deleted",

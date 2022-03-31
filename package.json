@@ -1,5 +1,10 @@
 {
   "name": "rantsHQ",
+  "author": {
+    "name": "Hammed A. Olajide",
+    "url": "http://ogbeni.com.ng",
+    "email": "hmmd@ogbeni.com.ng"
+  },
   "packageManager": "yarn@3.2.0",
   "private": true,
   "workspaces": [
