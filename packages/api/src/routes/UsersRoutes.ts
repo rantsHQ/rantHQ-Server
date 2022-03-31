@@ -41,24 +41,30 @@ UsersRoutes.get("/", GetUsers);
  * {
  *   "username": "",
  *   "email": "",
- *   "firstName": "",
- *   "lastName": "",
- *   "location": ""
+ *   "password": ""
  * }
  */
-UsersRoutes.get("/", CreateUser);
+UsersRoutes.post("/", CreateUser);
+
+/**
+ * GET /users/{username}/check
+ * @tags Users
+ * @summary Confirm Username Availability
+ * @param {string} username.path.required
+ */
+UsersRoutes.get("/:username/check", NotImplemented);
 
 /**
  * GET /users/{id}
  * @tags Users
  * @summary Fetch details of a user
- * @param {string} id.path.required  - Id or userName of the user
+ * @param {string} id.path.required
  * @return {User} - 200 - success response
  */
 UsersRoutes.get("/:id", GetUser);
 
 /**
- * PATCH /users
+ * PATCH /users/{id}
  * @tags Users
  * @summary Update user account
  * @return {User} 200 - Success response
@@ -71,22 +77,36 @@ UsersRoutes.get("/:id", GetUser);
  *   "location": ""
  * }
  */
-UsersRoutes.get("/", NotImplemented);
+UsersRoutes.patch("/", NotImplemented);
 
 /**
  * DELETE /users/{id}
  * @tags Users
  * @summary Deactivate a users account
- * @param {string} id.path.required  - Id or userName of the user
+ * @param {string} id.path.required
  * @return {object} - 200 - success response
  * @param {object} request.body.required
  * @example request - payload example
  * {
- *   "id": "",
  *   "reason": "",
  *   "duration": ""
  * }
  */
 UsersRoutes.delete("/:id", DeleteUser);
+
+/**
+ * POST /users/{id}/flag
+ * @tags Users
+ * @summary Deactivate a users account
+ * @param {string} id.path.required
+ * @return {object} - 200 - success response
+ * @param {object} request.body.required
+ * @example request - payload example
+ * {
+ *   "reason": "",
+ *   "priority": ""
+ * }
+ */
+UsersRoutes.post("/:id/flag", NotImplemented);
 
 export default UsersRoutes;
