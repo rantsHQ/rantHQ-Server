@@ -2,6 +2,7 @@ import express, { Application } from "express";
 const expressJSDocSwagger = require("express-jsdoc-swagger");
 
 import { NotFound } from "./src/controllers/MiscController";
+import AuthRoutes from "./src/routes/AuthRoutes";
 import PostsRoutes from "./src/routes/PostsRoutes";
 import UsersRoutes from "./src/routes/UsersRoutes";
 
@@ -33,8 +34,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/posts", PostsRoutes);
+app.use("/auth", AuthRoutes);
 app.use("/users", UsersRoutes);
+app.use("/posts", PostsRoutes);
 app.all("/*", NotFound);
 
 try {

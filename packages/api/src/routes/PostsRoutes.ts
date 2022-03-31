@@ -38,7 +38,7 @@ PostsRoutes.get("/", GetPosts);
  *   "expiry": ""
  * }
  */
-PostsRoutes.get("/", NotImplemented);
+PostsRoutes.post("/", NotImplemented);
 
 /**
  * GET /posts/{id}
