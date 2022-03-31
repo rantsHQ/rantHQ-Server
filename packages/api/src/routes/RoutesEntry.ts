@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from "express";
-import routesPosts from "./posts.route";
-import routesUsers from "./users.route";
+import routesPosts from "./PostsRoutes";
+import routesUsers from "./UsersRoute";
 
 const routes: Router = express.Router();
 

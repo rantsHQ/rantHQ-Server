@@ -3,7 +3,7 @@ import {
   deletePost,
   fetchAllPosts,
   fetchSinglePost,
-} from "../controllers/posts.controller";
+} from "../controllers/PostsController";
 
 const routesPosts: Router = express.Router();
 

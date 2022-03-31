@@ -3,7 +3,7 @@ import {
   deleteUser,
   fetchAllUsers,
   fetchSingleUser,
-} from "../controllers/users.controller";
+} from "../controllers/UsersController";
 
 const routesUsers: Router = express.Router();
 
