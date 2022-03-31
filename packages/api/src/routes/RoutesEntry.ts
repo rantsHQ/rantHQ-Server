@@ -20,9 +20,14 @@ routes.use("/users", routesUsers);
 
 // ALL: 404
 routes.all("/*", async (req: Request, res: Response): Promise<Response> => {
+  const { method, url } = req;
   const response = {
     status: 404,
-    message: "Resourses not found",
+    request: {
+      method,
+      url,
+    },
+    message: "Not found",
   };
   return res.status(response.status).json(response);
 });
