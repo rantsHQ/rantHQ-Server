@@ -144,6 +144,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.21"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:17.0.24", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.24-5b16c4ab89-9e7c4f8636.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:17.0.24"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/qs", [\
@@ -282,7 +289,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["api", "workspace:packages/api"],\
             ["@types/express", "npm:4.17.13"],\
-            ["@types/node", "npm:17.0.21"],\
+            ["@types/node", "npm:17.0.24"],\
             ["express", "npm:4.17.3"],\
             ["express-jsdoc-swagger", "npm:1.6.7"],\
             ["ts-node-dev", "virtual:ee30e4e8621888118e3112c9a4791d8c9d181961a7fc656afb8f9862703185d5aaf75e7d8371b318217947e6ff3ef744eedc1fa54c88d453e07d11fef918be75#npm:1.1.8"],\
