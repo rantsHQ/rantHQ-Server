@@ -41,8 +41,8 @@ app.all("/*", NotFound);
 
 try {
   app.listen(port, (): void => {
-    console.log(`Connected successfully on port ${port}`);
+    console.log(`🚀[server]: Listening at http://localhost:${port}`);
   });
 } catch (error) {
-  console.error(`Error occured: ${error}`);
+  console.error(`🚩Error occurred: ${error}`);
 }
