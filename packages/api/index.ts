@@ -12,9 +12,9 @@ const port = 2700;
 const options = {
   info: {
     version: "0.0.1",
-    title: "RantsHQ",
+    title: "rantsHQ",
+    description: "API description for rantsHQ",
   },
-  description: "API description",
   security: {
     BasicAuth: {
       type: "http",
@@ -41,7 +41,11 @@ app.all("/*", NotFound);
 
 try {
   app.listen(port, (): void => {
-    console.log(`🚀[server]: Listening at http://localhost:${port}`);
+    console.log(
+      `🚀 Server [re]started successfully`,
+      `\n[SERVER]: http://localhost:${port}`,
+      `\n[DOCS]:   http://localhost:${port}/docs`
+    );
   });
 } catch (error) {
   console.error(`🚩Error occurred: ${error}`);
