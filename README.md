@@ -1,1 +1,1 @@
-# rantsHQ
+# rantHQ api services
