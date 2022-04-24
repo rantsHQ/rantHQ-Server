@@ -28,7 +28,6 @@ const UsersRoutes: Router = express.Router();
  * POST /users
  * @tags Users
  * @summary Create new user account
- * @return {User} 200 - Success response
  * @param {User} request.body.required
  * @example request - payload example
  * {
@@ -44,7 +43,6 @@ UsersRoutes.post("/", RegisterUser);
  * @tags Users
  * @summary Fetch all users
  * @param {string} page.query - Pagination
- * @return {array<User>} 200 - Success response
  */
 UsersRoutes.get("/", FetchUsers);
 
@@ -61,7 +59,6 @@ UsersRoutes.get("/:username/check", checkUsername);
  * @tags Users
  * @summary Fetch details of a user
  * @param {string} id.path.required
- * @return {User} - 200 - success response
  */
 UsersRoutes.get("/:id", FetchUser);
 
@@ -69,7 +66,6 @@ UsersRoutes.get("/:id", FetchUser);
  * PATCH /users/{id}
  * @tags Users
  * @summary Update user account
- * @return {User} 200 - Success response
  * @param {User} request.body.required
  * @example request - payload example
  * {
@@ -86,7 +82,6 @@ UsersRoutes.patch("/", updateUser);
  * @tags Users
  * @summary Deactivate a users account
  * @param {string} id.path.required
- * @return {object} - 200 - success response
  * @param {object} request.body.required
  * @example request - payload example
  * {
@@ -101,7 +96,6 @@ UsersRoutes.delete("/:id", deleteUser);
  * @tags Users
  * @summary Deactivate a users account
  * @param {string} id.path.required
- * @return {object} - 200 - success response
  * @param {object} request.body.required
  * @example request - payload example
  * {
