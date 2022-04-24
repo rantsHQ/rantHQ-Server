@@ -10,7 +10,7 @@ export const swaggerOptions = {
       scheme: "bearer",
     },
   },
-  baseDir: __dirname,
+  baseDir: "./",
   filesPattern: "./**/*.ts",
   swaggerUIPath: "/docs",
 };
