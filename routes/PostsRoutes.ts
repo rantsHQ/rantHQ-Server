@@ -29,7 +29,7 @@ const PostsRoutes: Router = express.Router();
  * {
  *   "author": "",
  *   "parent": "",
- *   "content": "",
+ *   "content": ""
  * }
  */
 PostsRoutes.post("/", CreateNewPost);
@@ -51,7 +51,7 @@ PostsRoutes.get("/", FetchPosts);
 PostsRoutes.get("/:id", FetchPost);
 
 /**
- * PUT /posts/{id}
+ * PUT /posts/{id}/{flag}
  * @tags Posts
  * @summary Flag a post
  * @param {string} id.path.required
