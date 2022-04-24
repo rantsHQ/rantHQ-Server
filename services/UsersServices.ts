@@ -31,14 +31,14 @@ export async function findAllUsers() {
   await User.findAll()
     .then((data: any) => {
       response = {
-        status: 201,
+        status: 200,
         data: data,
       };
     })
     .catch((e: any) => {
       response = {
         status: 500,
-        errors: e?.errors.map((ex: any) => ex.message) || ["An error occurred"],
+        errors: e?.errors.map((ex: any) => ex.message),
       };
     });
 
