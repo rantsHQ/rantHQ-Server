@@ -36,7 +36,11 @@ export async function FlagPost(req: Request, res: Response) {
   const { id, flag } = req.params;
   await updatePostFlag({ id, flag }).then(async () => {
     response = await findOnePost(id);
+    if (!response.data.length) {
+      response = { status: 404, message: "Post not found" };
+    }
   });
+
   return res.status(response.status).json(response);
 }
 
@@ -44,6 +48,9 @@ export async function ArchivePost(req: Request, res: Response) {
   const { id } = req.params;
   await updatePostStatus({ id, status: "archived" }).then(async () => {
     response = await findOnePost(id);
+    if (!response.data.length) {
+      response = { status: 404, message: "Post not found" };
+    }
   });
   return res.status(response.status).json(response);
 }
