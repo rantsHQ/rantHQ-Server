@@ -1,15 +1,17 @@
 import { DataTypes } from "sequelize";
 
 export const UserModel = {
-  userName: {
+  username: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   email: {
     type: DataTypes.STRING,
     validate: {
       isEmail: true,
     },
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
@@ -20,7 +22,10 @@ export const UserModel = {
   location: DataTypes.STRING,
   dateOfBirth: DataTypes.DATE,
   bio: DataTypes.TEXT,
-  verified: DataTypes.BOOLEAN,
+  verified: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
   last_login: DataTypes.DATE,
   status: {
     type: DataTypes.ENUM("active", "inactive", "verified", "unverified"),

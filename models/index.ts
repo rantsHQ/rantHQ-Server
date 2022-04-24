@@ -1,18 +1,17 @@
 import { databaseConfig } from "./../config/database.config";
+import { PostModel } from "./PostModel";
+import { UserModel } from "./UserModel";
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(databaseConfig);
-
-import { UserModel } from "./UserModel";
-import { PostModel } from "./PostModel";
+export const database = new Sequelize(databaseConfig);
 
 // Load models
-sequelize.define("user", UserModel);
-sequelize.define("post", PostModel);
+export const Users = database.define("users", UserModel);
+export const Posts = database.define("posts", PostModel);
 
 // Automatically create all tables
 (async () => {
-  await sequelize
+  await database
     .sync()
     .then(() => {
       console.log(`[DATABASE]: Synchronized successfully`);
