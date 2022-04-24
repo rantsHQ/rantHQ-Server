@@ -1,6 +1,6 @@
 export const swaggerOptions = {
   info: {
-    version: "0.0.1",
+    version: "0.0.4",
     title: "rantsHQ",
     description: "API description for rantsHQ",
   },
