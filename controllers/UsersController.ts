@@ -40,11 +40,28 @@ export async function createUser(req: Request, res: Response) {
   return res.status(response.status).json(response);
 }
 
-export function findAllUsers(req: Request, res: Response) {
-  const response = {
+export async function findAllUsers(req: Request, res: Response) {
+  let response: Res = {
     status: 501,
     message: "No users found",
   };
+
+  await User.findAll()
+    .then((data: any) => {
+      response = {
+        status: 200,
+        message: "Users found",
+        data,
+      };
+    })
+    .catch((e: any) => {
+      response = {
+        status: 404,
+        message: "No users found",
+        errors: e.errors.map((ex: any) => ex.message),
+      };
+    });
+
   return res.status(response.status).json(response);
 }
 
