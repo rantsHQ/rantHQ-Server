@@ -6,8 +6,8 @@ const Sequelize = require("sequelize");
 export const database = new Sequelize(databaseConfig);
 
 // Load models
-export const Users = database.define("users", UserModel);
-export const Posts = database.define("posts", PostModel);
+export const User = database.define("users", UserModel);
+export const Post = database.define("posts", PostModel);
 
 // Automatically create all tables
 (async () => {

@@ -1,6 +1,6 @@
 {
   "name": "rant-hq-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "dev": "ts-node-dev ./index.ts",
     "start": "tsc && node ./build/index.js"
