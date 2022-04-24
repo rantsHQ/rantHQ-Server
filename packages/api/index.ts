@@ -1,5 +1,9 @@
 import express, { Application } from "express";
+
+const db = require("./config/db.config");
+
 const expressJSDocSwagger = require("express-jsdoc-swagger");
+import { swaggerOptions } from "./config/swagger.config";
 
 import { NotFound } from "./src/controllers/MiscController";
 import AuthRoutes from "./src/routes/AuthRoutes";
@@ -9,25 +13,8 @@ import UsersRoutes from "./src/routes/UsersRoutes";
 const app: Application = express();
 const port = 2700;
 
-const options = {
-  info: {
-    version: "0.0.1",
-    title: "rantsHQ",
-    description: "API description for rantsHQ",
-  },
-  security: {
-    BasicAuth: {
-      type: "http",
-      scheme: "bearer",
-    },
-  },
-  baseDir: __dirname,
-  filesPattern: "./**/*.ts",
-  swaggerUIPath: "/docs",
-};
-
 // Swagger Doc
-expressJSDocSwagger(app)(options);
+expressJSDocSwagger(app)(swaggerOptions);
 
 // Body parsing Middleware
 app.use(express.json());
