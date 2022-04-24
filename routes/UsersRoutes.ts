@@ -1,12 +1,12 @@
 import express, { Router } from "express";
 import {
-  createUser,
   deleteUser,
   updateUser,
   checkUsername,
   flagUser,
   FetchUsers,
   FetchUser,
+  RegisterUser,
 } from "../controllers/UsersController";
 
 const UsersRoutes: Router = express.Router();
@@ -15,7 +15,7 @@ const UsersRoutes: Router = express.Router();
  * A users type
  * @typedef {object} User
  * @property {integer} id
- * @property {string} userName.required
+ * @property {string} username.required
  * @property {string} firstName.required
  * @property {string} lastName.required
  * @property {string} middleName
@@ -37,7 +37,7 @@ const UsersRoutes: Router = express.Router();
  *   "password": ""
  * }
  */
-UsersRoutes.post("/", createUser);
+UsersRoutes.post("/", RegisterUser);
 
 /**
  * GET /users
