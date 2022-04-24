@@ -1,7 +1,8 @@
-import { Users } from "./../models/index";
 import { Response, Request } from "express";
 
-export function GetUser(req: Request, res: Response) {
+import { User } from "./../models/index";
+
+export function findOneUser(req: Request, res: Response) {
   const response = {
     status: 501,
     message: "User not found",
@@ -9,22 +10,22 @@ export function GetUser(req: Request, res: Response) {
   return res.status(response.status).json(response);
 }
 
-export async function CreateUser(req: Request, res: Response) {
+export async function createUser(req: Request, res: Response) {
   let response: Res = {
     status: 501,
     message: "User not created",
   };
 
   const { username, password, email } = req.body;
-  await Users.create({
+  await User.create({
     username,
     password,
     email,
   })
     .then((res: any) => {
       response = {
-        status: 200,
-        message: "Registration Successful",
+        status: 201,
+        message: "Registration successful",
         data: res.dataValues,
       };
     })
@@ -32,14 +33,14 @@ export async function CreateUser(req: Request, res: Response) {
       response = {
         status: 500,
         message: "An error occurred",
-        exception: e.errors.map((ex: any) => ex.message),
+        errors: e.errors.map((ex: any) => ex.message),
       };
     });
 
   return res.status(response.status).json(response);
 }
 
-export function GetUsers(req: Request, res: Response) {
+export function findAllUsers(req: Request, res: Response) {
   const response = {
     status: 501,
     message: "No users found",
@@ -47,7 +48,31 @@ export function GetUsers(req: Request, res: Response) {
   return res.status(response.status).json(response);
 }
 
-export function DeleteUser(req: Request, res: Response) {
+export function updateUser(req: Request, res: Response) {
+  const response = {
+    status: 501,
+    message: "Unable to update user",
+  };
+  return res.status(response.status).json(response);
+}
+
+export function flagUser(req: Request, res: Response) {
+  const response = {
+    status: 501,
+    message: "NOT_IMPLEMENTED",
+  };
+  return res.status(response.status).json(response);
+}
+
+export function checkUsername(req: Request, res: Response) {
+  const response = {
+    status: 501,
+    message: "NOT_IMPLEMENTED",
+  };
+  return res.status(response.status).json(response);
+}
+
+export function deleteUser(req: Request, res: Response) {
   const response = {
     status: 501,
     message: "User not deactivated",
@@ -58,6 +83,6 @@ export function DeleteUser(req: Request, res: Response) {
 interface Res {
   status: number;
   message: string;
-  exception?: any;
-  data?: Object;
+  errors?: string[];
+  data?: any;
 }
