@@ -1,7 +1,5 @@
 import express, { Application } from "express";
 
-const db = require("./config/db.config");
-
 const expressJSDocSwagger = require("express-jsdoc-swagger");
 import { swaggerOptions } from "./config/swagger.config";
 
@@ -11,6 +9,7 @@ import PostsRoutes from "./src/routes/PostsRoutes";
 import UsersRoutes from "./src/routes/UsersRoutes";
 
 const app: Application = express();
+// Designate port
 const port = 2700;
 
 // Swagger Doc
@@ -33,6 +32,9 @@ try {
       `\n[SERVER]: http://localhost:${port}`,
       `\n[DOCS]:   http://localhost:${port}/docs`
     );
+
+    // Initialize database
+    const database = require("./models");
   });
 } catch (error) {
   console.error(`🚩Error occurred: ${error}`);
