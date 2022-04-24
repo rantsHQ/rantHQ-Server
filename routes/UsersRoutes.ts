@@ -1,10 +1,13 @@
 import express, { Router, Request, Response } from "express";
 import { NotImplemented } from "../controllers/MiscController";
 import {
-  CreateUser,
-  DeleteUser,
-  GetUser,
-  GetUsers,
+  createUser,
+  deleteUser,
+  findOneUser,
+  findAllUsers,
+  updateUser,
+  checkUsername,
+  flagUser,
 } from "../controllers/UsersController";
 
 const UsersRoutes: Router = express.Router();
@@ -23,15 +26,6 @@ const UsersRoutes: Router = express.Router();
  */
 
 /**
- * GET /users
- * @tags Users
- * @summary Fetch all users
- * @param {string} page.query - Pagination
- * @return {array<User>} 200 - Success response
- */
-UsersRoutes.get("/", GetUsers);
-
-/**
  * POST /users
  * @tags Users
  * @summary Create new user account
@@ -44,7 +38,16 @@ UsersRoutes.get("/", GetUsers);
  *   "password": ""
  * }
  */
-UsersRoutes.post("/", CreateUser);
+UsersRoutes.post("/", createUser);
+
+/**
+ * GET /users
+ * @tags Users
+ * @summary Fetch all users
+ * @param {string} page.query - Pagination
+ * @return {array<User>} 200 - Success response
+ */
+UsersRoutes.get("/", findAllUsers);
 
 /**
  * GET /users/{username}/check
@@ -52,7 +55,7 @@ UsersRoutes.post("/", CreateUser);
  * @summary Confirm Username Availability
  * @param {string} username.path.required
  */
-UsersRoutes.get("/:username/check", NotImplemented);
+UsersRoutes.get("/:username/check", checkUsername);
 
 /**
  * GET /users/{id}
@@ -61,7 +64,7 @@ UsersRoutes.get("/:username/check", NotImplemented);
  * @param {string} id.path.required
  * @return {User} - 200 - success response
  */
-UsersRoutes.get("/:id", GetUser);
+UsersRoutes.get("/:id", findOneUser);
 
 /**
  * PATCH /users/{id}
@@ -77,7 +80,7 @@ UsersRoutes.get("/:id", GetUser);
  *   "location": ""
  * }
  */
-UsersRoutes.patch("/", NotImplemented);
+UsersRoutes.patch("/", updateUser);
 
 /**
  * DELETE /users/{id}
@@ -92,7 +95,7 @@ UsersRoutes.patch("/", NotImplemented);
  *   "duration": ""
  * }
  */
-UsersRoutes.delete("/:id", DeleteUser);
+UsersRoutes.delete("/:id", deleteUser);
 
 /**
  * POST /users/{id}/flag
@@ -107,6 +110,6 @@ UsersRoutes.delete("/:id", DeleteUser);
  *   "priority": ""
  * }
  */
-UsersRoutes.post("/:id/flag", NotImplemented);
+UsersRoutes.post("/:id/flag", flagUser);
 
 export default UsersRoutes;
