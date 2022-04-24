@@ -45,7 +45,7 @@ export async function findAllUsers() {
   return response;
 }
 
-export async function findOneUsers(id: number | string): Promise<HttpResponse> {
+export async function findOneUser(id: number | string): Promise<HttpResponse> {
   await User.findAll({ where: { id } }).then((data: any) => {
     response = {
       status: 200,

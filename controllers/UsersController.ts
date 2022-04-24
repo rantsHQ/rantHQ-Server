@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import {
   createUser,
   findAllUsers,
-  findOneUsers,
+  findOneUser,
 } from "../services/UsersServices";
 
 import { HttpResponse } from "./../types/HttpResponse";
@@ -21,7 +21,7 @@ export async function RegisterUser(req: Request, res: Response) {
 
 export async function FetchUser(req: Request, res: Response) {
   const { id } = req.params;
-  response = await findOneUsers(id);
+  response = await findOneUser(id);
   return res.status(response.status).json(response);
 }
 
