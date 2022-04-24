@@ -1,13 +1,12 @@
-import express, { Router, Request, Response } from "express";
-import { NotImplemented } from "../controllers/MiscController";
+import express, { Router } from "express";
 import {
   createUser,
   deleteUser,
-  findOneUser,
-  findAllUsers,
   updateUser,
   checkUsername,
   flagUser,
+  FetchUsers,
+  FetchUser,
 } from "../controllers/UsersController";
 
 const UsersRoutes: Router = express.Router();
@@ -47,7 +46,7 @@ UsersRoutes.post("/", createUser);
  * @param {string} page.query - Pagination
  * @return {array<User>} 200 - Success response
  */
-UsersRoutes.get("/", findAllUsers);
+UsersRoutes.get("/", FetchUsers);
 
 /**
  * GET /users/{username}/check
@@ -64,7 +63,7 @@ UsersRoutes.get("/:username/check", checkUsername);
  * @param {string} id.path.required
  * @return {User} - 200 - success response
  */
-UsersRoutes.get("/:id", findOneUser);
+UsersRoutes.get("/:id", FetchUser);
 
 /**
  * PATCH /users/{id}
